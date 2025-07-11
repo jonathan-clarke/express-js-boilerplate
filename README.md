@@ -9,6 +9,7 @@ A minimal Express.js API built with TypeScript, featuring a health check endpoin
 - **Health Check**: Built-in `/health` endpoint for monitoring
 - **Testing**: Jest with Supertest for API endpoint testing
 - **Development**: Hot reload with nodemon and ts-node
+- **Swagger UI**: Interactive API documentation
 
 ## Getting Started
 
@@ -41,6 +42,18 @@ A minimal Express.js API built with TypeScript, featuring a health check endpoin
 
 - `GET /` - API information
 - `GET /health` - Health check endpoint
+
+## Swagger Documentation
+
+Access the interactive Swagger UI at: **http://localhost:3000/api-docs**
+
+The Swagger UI allows you to:
+- View all available API endpoints
+- See detailed request/response schemas  
+- Test endpoints directly in the browser
+- View example requests and responses
+
+For creating Swagger JSDoc comments, see: https://swagger.io/specification/ and https://github.com/Surnet/swagger-jsdoc
 
 ## Project Structure
 
