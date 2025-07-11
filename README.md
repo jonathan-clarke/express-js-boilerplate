@@ -14,21 +14,25 @@ A minimal Express.js API built with TypeScript, featuring a health check endpoin
 ## Getting Started
 
 1. **Install dependencies:**
+
    ```bash
    npm install
    ```
 
 2. **Development mode:**
+
    ```bash
    npm run dev
    ```
 
 3. **Build for production:**
+
    ```bash
    npm run build
    ```
 
 4. **Start production server:**
+
    ```bash
    npm start
    ```
@@ -48,8 +52,9 @@ A minimal Express.js API built with TypeScript, featuring a health check endpoin
 Access the interactive Swagger UI at: **http://localhost:3000/api-docs**
 
 The Swagger UI allows you to:
+
 - View all available API endpoints
-- See detailed request/response schemas  
+- See detailed request/response schemas
 - Test endpoints directly in the browser
 - View example requests and responses
 

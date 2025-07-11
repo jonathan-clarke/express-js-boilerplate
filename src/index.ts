@@ -12,24 +12,25 @@ const swaggerOptions = {
     info: {
       title: 'Express.js TypeScript API Boilerplate',
       version: '1.0.0',
-      description: 'A simple Express.js API with TypeScript and Swagger documentation',
+      description:
+        'A simple Express.js API with TypeScript and Swagger documentation',
       contact: {
         name: 'API Support',
-        email: 'support@example.com'
+        email: 'support@example.com',
       },
       license: {
         name: 'MIT',
-        url: 'https://opensource.org/licenses/MIT'
-      }
+        url: 'https://opensource.org/licenses/MIT',
+      },
     },
     servers: [
       {
         url: `http://localhost:${PORT}`,
-        description: 'Development server'
-      }
-    ]
+        description: 'Development server',
+      },
+    ],
   },
-  apis: ['./src/*.ts'] // Path to the API files
+  apis: ['./src/*.ts'], // Path to the API files
 };
 
 const swaggerSpec = swaggerJsdoc(swaggerOptions);
@@ -77,7 +78,7 @@ app.get('/health', (req: Request, res: Response) => {
     status: 'OK',
     message: 'Service is healthy',
     timestamp: new Date().toISOString(),
-    uptime: process.uptime()
+    uptime: process.uptime(),
   });
 });
 
@@ -108,7 +109,7 @@ app.get('/health', (req: Request, res: Response) => {
 app.get('/', (req: Request, res: Response) => {
   res.status(200).json({
     message: 'Express.js TypeScript API Boilerplate',
-    version: '1.0.0'
+    version: '1.0.0',
   });
 });
 
