@@ -25,7 +25,7 @@
       "type": "node",
       "request": "launch",
       "program": "${workspaceFolder}/node_modules/.bin/jest",
-      "args": ["--runInBand", "--no-cache"],
+      "args": ["--runInBand", "--no-cache", "--testTimeout=999999999"],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
       "env": {
