@@ -1,5 +1,5 @@
 import { Database } from '../database';
-import { Migration } from './index';
+import { Migration } from '../migrations/index';
 
 export const createUsersTable: Migration = {
   async up(): Promise<void> {
@@ -21,7 +21,7 @@ export const createUsersTable: Migration = {
 
     // Create an index on email for faster lookups
     await db.run('CREATE INDEX idx_users_email ON users(email)');
-    
+
     // Create an index on username for faster lookups
     await db.run('CREATE INDEX idx_users_username ON users(username)');
   },
@@ -29,5 +29,5 @@ export const createUsersTable: Migration = {
   async down(): Promise<void> {
     const db = Database.getInstance();
     await db.run('DROP TABLE IF EXISTS users');
-  }
+  },
 };

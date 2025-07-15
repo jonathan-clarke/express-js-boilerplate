@@ -1,11 +1,11 @@
 import express, { Request, Response } from 'express';
-import { UserModel, CreateUserData } from '../models/User';
+import { UserModel, CreateUserData } from './users.model';
 import { validateBody, validateParams } from '../middleware/validation';
 import {
   createUserSchema,
   updateUserSchema,
   userIdSchema,
-} from '../schemas/userSchemas';
+} from './users.schemas';
 
 const router = express.Router();
 const userModel = new UserModel();
