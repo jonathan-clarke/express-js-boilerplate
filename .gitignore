@@ -18,3 +18,9 @@ node_modules/
 
 # Mac OS
 .DS_Store
+
+# SQLite database files
+data/
+*.db
+*.sqlite
+*.sqlite3
