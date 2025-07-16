@@ -3,6 +3,7 @@ import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 import userRoutes from './users/users.routes';
 import healthRoutes from './health/health.routes';
+import transformWebhook from './transform-webhook/transformWebhook.routes';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -32,7 +33,11 @@ const swaggerOptions = {
       },
     ],
   },
-  apis: ['./src/app.ts', './src/routes/*.ts', './src/users/users.routes.ts'], // Path to the API files
+  apis: [
+    './src/app.ts',
+    './src/routes/*.ts',
+    './src/transform-webhook/transform-webhook.routes.ts',
+  ], // Path to the API files
 };
 
 const swaggerSpec = swaggerJsdoc(swaggerOptions);
@@ -42,6 +47,7 @@ app.use(express.json());
 // API routes
 app.use('/api/users', userRoutes);
 app.use('/health', healthRoutes);
+app.use('/webhook', transformWebhook);
 
 /**
  * @swagger
