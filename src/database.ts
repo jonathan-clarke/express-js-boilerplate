@@ -7,7 +7,9 @@ export class Database {
 
   private constructor() {
     const dbPath = path.join(process.cwd(), 'data', 'app.db');
-    this.db = new sqlite3.Database(dbPath, (err) => {
+    this.db = new sqlite3.Database(dbPath, 
+      sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, 
+      (err) => {
       if (err) {
         console.error('Error opening database:', err.message);
       } else {
