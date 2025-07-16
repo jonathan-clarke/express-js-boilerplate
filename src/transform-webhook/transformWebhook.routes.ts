@@ -1,6 +1,9 @@
 import express, { Request, Response } from 'express';
 import { validateBody } from '../middleware/validation';
-import { transformWebhookSchema } from './transformWebhook.schemas';
+import {
+  transformWebhookSchema,
+  forterChargebackWebhookSchema,
+} from './transformWebhook.schemas';
 import { transformWebhook } from './transformWebhook.service';
 
 const router = express.Router();
@@ -204,6 +207,9 @@ router.post(
       const { type, payload } = req.body;
       console.log('Transforming a webhook of type: ', type);
       const forterWebhook = transformWebhook(type, payload);
+
+      // Validates that the response will be in the forterWebhook schema
+      forterChargebackWebhookSchema.parse(forterWebhook);
       res.status(200);
       res.json(forterWebhook);
     } catch (error) {

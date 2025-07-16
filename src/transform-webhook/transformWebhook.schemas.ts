@@ -49,10 +49,14 @@ export const transformWebhookSchema = z.object({
 
 export type TransformWebhookInput = z.infer<typeof transformWebhookSchema>;
 
-export type ForterChargebackWebhook = {
-  transaction_id: string;
-  reason: string;
-  currency: string;
-  amount: number;
-  provider?: string;
-};
+export const forterChargebackWebhookSchema = z.object({
+  transaction_id: z.string(),
+  reason: z.string(),
+  currency: z.string(),
+  amount: z.number(),
+  provider: z.string().optional(),
+});
+
+export type ForterChargebackWebhook = z.infer<
+  typeof forterChargebackWebhookSchema
+>;
