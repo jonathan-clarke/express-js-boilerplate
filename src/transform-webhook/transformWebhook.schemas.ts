@@ -33,27 +33,26 @@ const stripeChargebackWebhook = z.object({
 export type ChargebackWebhookData = z.infer<typeof stripeChargebackWebhook>;
 
 export enum WebhookTypes {
-  'stripe-chargeback',
+  'stripe-chargeback' = 'stripe-chargeback',
 }
 
 export enum Providers {
-  stripe,
+  stripe = 'stripe',
 }
 
 // You can add more webhook data types using z.or
+// onto the end of this z.object
 export const transformWebhookSchema = z.object({
-  type: z.enum(WebhookTypes),
-  webhook: stripeChargebackWebhook,
+  type: z.string(WebhookTypes['stripe-chargeback']),
+  payload: stripeChargebackWebhook,
 });
 
 export type TransformWebhookInput = z.infer<typeof transformWebhookSchema>;
 
-export type ForterChargebackWebhook =
-  | {
-      transaction_id: string;
-      reason: string;
-      currency: string;
-      amount: number;
-      provider?: string;
-    }
-  | {};
+export type ForterChargebackWebhook = {
+  transaction_id: string;
+  reason: string;
+  currency: string;
+  amount: number;
+  provider?: string;
+};

@@ -5,7 +5,7 @@ import {
   WebhookTypes,
 } from './transformWebhook.schemas';
 
-export const tranformWebhook = (
+export const transformWebhook = (
   type: WebhookTypes,
   webhook: ChargebackWebhookData
 ): ForterChargebackWebhook => {

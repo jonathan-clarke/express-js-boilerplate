@@ -33,15 +33,10 @@ const swaggerOptions = {
       },
     ],
   },
-  apis: [
-    './src/app.ts',
-    './src/routes/*.ts',
-    './src/transform-webhook/transform-webhook.routes.ts',
-  ], // Path to the API files
+  apis: ['./src/app.ts', './src/transform-webhook/transformWebhook.routes.ts'], // Path to the API files
 };
 
 const swaggerSpec = swaggerJsdoc(swaggerOptions);
-
 app.use(express.json());
 
 // API routes
